@@ -1,0 +1,44 @@
+.ng-invalid:not(form) {
+    border-left: 5px solid red;
+}
+h5{
+    color: rgb(89, 78, 78);
+}
+p{
+    color: rgb(89, 78, 78);
+}
+
+ .card .card-body .card-header{
+    margin-bottom: 10px;
+    color: white;
+    background-color: #f9505e;
+    font-size: larger;
+    font-weight: 600;
+    text-align: center;
+} 
+
+ button{
+    font-weight: 600;
+    align-content: center;
+} 
+
+label{
+    color:#fe9e5e;
+    font-weight: 600;
+}
+
+.card {
+    border: none;
+}
+.gradient-custom-2 {
+    /* fallback for old browsers */
+    background: #fccb90;
+
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #00c6ff,#2979ff, #2a5298,#1e3c72);
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #00c6ff,#2979ff, #2a5298,#1e3c72);
+        
+}
+    

@@ -1,0 +1,58 @@
+<div class="card">
+    <div class="card-body">
+        <div class="container">
+            <div class=" card-header fa-lg gradient-custom-2 mb-3">Add Course!</div>
+
+
+
+            <form #courseForm="ngForm" (ngSubmit)="onSubmit(courseForm)">
+                <div class="form-group">
+                    <label for="courseName">Course Name</label>
+                    <input id="courseName" class="form-control" name="courseName" [(ngModel)]="course.courseName" #courseName="ngModel" required minlength="7"/>
+                    <div *ngIf="courseName.invalid && courseName.touched">
+                        <div *ngIf="courseName.errors?.required">Course Name is mandatory</div>
+                        <div *ngIf="courseName.errors?.minlength">Course Name should not be less than 7 character</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="courseDuration">Course Duration in Hours</label>
+                    <input id="courseDuration" class="form-control" name="courseDuration" [(ngModel)]="course.courseDuration" #courseDuration="ngModel" />
+                    <div *ngIf="courseDuration.invalid && courseDuration.touched">
+                        <div *ngIf="courseDuration.errors?.required">Course Duration is mandatory</div>
+                    </div>
+                </div>
+
+                
+                <div class="form-group">
+                    <label for="courseDescription">Course Description</label>
+                    <textarea id="courseDescription"  class="form-control" name="courseDescription" [(ngModel)]="course.courseDescription" #courseDescription="ngModel" required minlength="20"></textarea>
+                    <div *ngIf="courseDescription.invalid && courseDescription.touched">
+                        <div *ngIf="courseDescription.errors?.required">Course Description is mandatory</div>
+                        <div *ngIf="courseName.errors?.minlength">Course Description should be atleast 20 characters</div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="technology">Technology</label>
+                    <input id="technology" class="form-control" name="technology" [(ngModel)]="course.technology" #technology="ngModel" />
+                    <div *ngIf="technology.invalid && technology.touched">
+                        <div *ngIf="technology.errors?.required">Technology is mandatory</div>
+                    </div> 
+                </div>
+                
+                <div class="form-group">
+                    <label for="launchUrl">Launch URL</label>
+                    <input id="launchUrl"  class="form-control" name="launchUrl" [(ngModel)]="course.launchUrl" #launchUrl="ngModel" required url/>
+                    <div *ngIf="launchUrl.invalid && launchUrl.touched">
+                        <div *ngIf="launchUrl.errors?.required">Launch URL is mandatory</div>
+                        <div *ngIf="courseName.errors?.url">Invalid URL format</div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-outline-danger" [disabled]="courseForm.invalid">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>        

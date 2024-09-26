@@ -1,0 +1,29 @@
+<app-header></app-header>
+<div class="course-container">
+    <div *ngFor="let course of courses" class="course-card">
+        <div class="main-group">
+            <img src="../../assets/imgcourse.jpg" alt="course image" class="course-image">        
+            <h3 class="title"><b>{{course.courseName}}</b></h3>
+            <div class="description"><strong>{{course.courseDescription}}</strong></div>
+            <div class="info">
+                <div class="laucnhUrl">
+                    <a [href]="course.launchUrl" target="_blank"><b>Launch Course</b></a>  
+                </div>
+                <div class="duration">
+                    <div class="time-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                          </svg>
+                    </div>
+                    <div class="unit">{{course.courseDuration}}</div>
+                </div>
+            </div>
+            <div class="remove" *ngIf="authenticationService.isUserRoleAdmin()">
+                <button (click)="deleteCourse(course.courseName)"><strong>Delete Course</strong></button>
+            </div>
+        </div>    
+            
+
+    </div>
+
+</div>

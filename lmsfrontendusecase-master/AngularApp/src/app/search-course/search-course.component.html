@@ -1,0 +1,101 @@
+<app-header></app-header>
+<br>
+<div class="container">
+    <div class="row">
+            <div class="col-3">
+                
+                    <div class="card-header gradient-custom-2">Search CourseName</div>
+                    <div class="form-outline-out div">
+                        <input type="search" class="form-control" placeholder="Search by coursername" #courseName>
+                    </div>
+                    <br>        
+                    <button id="search-button" type="button" class="btn btn-outline-danger bt" (click)="findCoursesByCourseName(courseName.value)">
+                        Search
+                    </button>
+                    <br><br>
+                    <div class="card-header gradient-custom-2">Search Technology</div>
+                    <div class="form-outline-out div">
+                        <input type="search" class="form-control" placeholder="Search by technology" #technology>
+                    </div>
+                    <br>       
+                    <button id="search-button" type="button" class="btn btn-outline-danger bt" (click)="findCoursesByTechnology(technology.value)">
+                        Search
+                    </button>
+                    <br><br>
+
+                    <div class="card-header gradient-custom-2">Technology By duration</div>
+                    <div class="form-outline-out div">
+                        <input type="search" class="form-control" placeholder="Enter Technology" #tech>
+                        <input type="search" class="form-control" #durationFrom placeholder="Duration From in Hours">
+                        <input type="search" class="form-control" #durationTo placeholder="Duration To in Hours">
+                    </div>
+                    <br>        
+                    <button id="search-button" type="button" class="btn btn-outline-danger bt" (click)="getCoursesByTechnologyAndDurationRange(tech.value,durationFrom.value,durationTo.value)">
+                        Search
+                    </button>
+                    <br><br>
+                
+            </div>
+            <br><br>
+       
+    <div class="col-9">    
+    <div  *ngIf="errorMessage"><p>{{errorMessage}}</p> </div>
+
+    <div *ngIf="course" class="course-container" style="margin-left: 100px;">
+        <div class="course-card">
+            <div class="main-group">
+                <img src="../../assets/imgcourse.jpg" alt="course image" class="course-image">        
+                <h3 class="title"><b>{{course.courseName}}</b></h3>
+                <div class="description"><strong>{{course.courseDescription}}</strong></div>
+                <div class="info">
+                    <div class="laucnhUrl">
+                        <a [href]="course.launchUrl" target="_blank"><b>Launch Course</b></a>  
+                    </div>
+                    <div class="duration">
+                        <div class="time-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                              </svg>
+                        </div>
+                        <div class="unit">{{course.courseDuration}}</div>
+                    </div>
+                </div>
+                <div class="remove" *ngIf="authenticationService.isUserRoleAdmin()">
+                    <button class="removebtn" (click)="deleteCourse(course.courseName)"><strong>Delete Course</strong></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="courses.length>0" class="course-container" style="margin-left: 100px;">
+        <div *ngFor="let course of courses" class="course-card">
+            <div class="main-group">
+                <img src="../../assets/imgcourse.jpg" alt="course image" class="course-image">        
+                <h3 class="title"><b>{{course.courseName}}</b></h3>
+                <div class="description"><strong>{{course.courseDescription}}</strong></div>
+                <div class="info">
+                    <div class="laucnhUrl">
+                        <a [href]="course.launchUrl" target="_blank"><b>Launch Course</b></a>  
+                    </div>
+                    <div class="duration">
+                        <div class="time-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                              </svg>
+                        </div>
+                        <div class="unit">{{course.courseDuration}}</div>
+                    </div>
+                </div>
+                <div class="remove" *ngIf="authenticationService.isUserRoleAdmin()" >
+                    <button class="removebtn" (click)="deleteCourse(course.courseName)"><strong>Delete Course</strong></button>
+                </div>
+            </div>    
+                
+    
+        </div>
+    </div>
+    </div>
+    </div>
+</div>
+
+

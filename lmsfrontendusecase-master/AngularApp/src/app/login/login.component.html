@@ -1,0 +1,58 @@
+<section class="h-100 gradient-form" style="background-color: #eee;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-xl-10">
+          <div class="card rounded-3 text-black">
+            <div class="row g-0">
+              <div class="col-lg-6">
+                <div class="card-body p-md-5 mx-md-4">
+  
+                  <div class="text-center">
+                    <img src="https://media.licdn.com/dms/image/D5612AQElzRgyvJqtHg/article-cover_image-shrink_600_2000/0/1693505254245?e=2147483647&v=beta&t=InG9eSHqM7slFrmJK3_RdFV-4bzoXgsvWyrCLLvM-j0"
+                      style="width: 185px;" alt="logo">
+                    <h4 class="mt-1 mb-5 pb-1">Learning Management System Application</h4>
+                  </div>
+  
+                  <!-- <form> -->
+                    <!-- <p>Please login to your account</p>
+                     -->
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="loginId">Email Id</label>
+                        <input type="text" id="loginId"  class="form-control"
+                        placeholder="Enter Email Id" [(ngModel)]="loginId" required  name='loginId'/>
+                     
+                    </div>
+  
+
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="password">Password</label>
+                        <input name='password' type="password" id="password" class="form-control" placeholder="Enter Your Password" [(ngModel)]="password" required/>
+                    </div>
+                     
+                    <div class="text-center pt-1 mb-5 pb-1">
+                      <button class="btn btn-danger btn-block fa-lg gradient-custom-2 mb-3"  (click)=handleLogin() type="button">Login</button>
+                        <div class="alert alert-warning" *ngIf='invalidLogin'>{{errorMessage}}</div>
+                    </div>
+                    
+                    <div class="d-flex align-items-center justify-content-center pb-4">
+                      <p class="mb-0 me-2">Don't have an account? &nbsp;</p>
+                      <a routerLink="/lms/register">
+                      <button type="button" class="btn btn-link">Register here</button>
+                    </a>
+                    </div>
+  
+  
+                </div>
+              </div>
+              <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                  <h4 class="mb-5">Empowering Minds, Elevating Futures</h4>
+                  <p class="medium mb-0">"Education is not the learning of facts, but the training of the mind to think." — Albert Einstein</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
