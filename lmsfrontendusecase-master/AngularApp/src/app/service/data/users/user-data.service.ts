@@ -15,7 +15,7 @@ export class UserDataService {
 
   constructor(private http: HttpClient) { }
 
-  url = "http://localhost:8080";
+  url = "http://localhost:5000";
 
   register(user: Users) {
     console.log(user)
